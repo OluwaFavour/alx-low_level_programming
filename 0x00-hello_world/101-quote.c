@@ -10,8 +10,8 @@ int main(void)
 {
 	size_t message_len;
 	ssize_t result;
-	char message[] = "and that piece of art is useful\" "
-			"- Dora Korpar, 2015-10-19\n";
+	char message[] = "and that piece of art is useful\" \
+			  - Dora Korpar, 2015-10-19\n";
 	message_len = sizeof(message) - 1;
 	result = write(STDERR_FILENO, message, message_len);
 
