@@ -23,7 +23,7 @@ int main(void)
 				putchar(c);
 				putchar(44); /* Print comma     */
 				putchar(32); /* Print space     */
-				if (a == 55 || b == 56 || c == 57)
+				if (a == 55 && b == 56 && c == 57)
 				{
 					continue;
 				}
