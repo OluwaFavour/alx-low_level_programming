@@ -21,10 +21,11 @@ int main(void)
 				putchar(a);
 				putchar(b);
 				putchar(c);
-				if (a < i - 1 || b < i || c <= i)
+				putchar(44); /* Print comma     */
+				putchar(32); /* Print space     */
+				if (a == 55 || b == 56 || c == 57)
 				{
-					putchar(44); /* Print comma */
-					putchar(32); /* Print space */
+					continue;
 				}
 			}
 		}
