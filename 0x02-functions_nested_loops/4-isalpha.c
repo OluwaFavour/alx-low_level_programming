@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  * _isalpha: Checks if an ASCII character is a letter
+  * _isalpha - Checks if an ASCII character is a letter
   * @c: The character to be checked
   *
   * Return: Returns 1 (True) and 0 (False)
