@@ -1,6 +1,5 @@
 /* 0-putchar.c */
-
-void _putchar(char c);
+#include "main.h"
 
 /**
  * main - Entry point
