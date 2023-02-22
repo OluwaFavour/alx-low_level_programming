@@ -8,13 +8,13 @@
 int main(void)
 {
 	int n = 98, i;
-	long fib1 = 1, fib2 = 2, fib;
+	unsigned long fib1 = 1, fib2 = 2, fib;
 
-	printf("%ld, %ld", fib1, fib2);
+	printf("%lu, %lu", fib1, fib2);
 	for (i = 3; i <= n; i++)
 	{
 		fib = fib1 + fib2;
-		printf(", %ld", fib);
+		printf(", %lu", fib);
 		fib1 = fib2;
 		fib2 = fib;
 	}
