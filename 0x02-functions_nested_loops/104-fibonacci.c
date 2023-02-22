@@ -8,35 +8,34 @@
  */
 int main(void)
 {
-	unsigned long int i, j, k, j1, j2, k1, k2;
+	unsigned long i, fib1, fib, fib1_a, fib1_b, fib_a, fib_b;
 
-	j = 1;
-	k = 2;
-
-	printf("%lu", j);
-
+	fib1 = 1, fib = 2;
+	/* Printing the first 91 fibonacci numbers */
+	printf("%lu", fib1);
 	for (i = 1; i < 91; i++)
 	{
-		printf(", %lu", k);
-		k = k + j;
-		j = k - j;
+		printf(", %lu", fib);
+		fib = fib + fib1; /* nextFib = currentFib + prevFib */
+		fib1 = fib - fib1; /* currentFib = nextFib - prevFib */
 	}
-
-	j1 = j / 1000000000;
-	j2 = j % 1000000000;
-	k1 = k / 1000000000;
-	k2 = k % 1000000000;
-
+	/**
+	 * Splitting the numbers into two parts
+	 * since the numbers are getting too large
+	 */
+	fib1_a = fib1 / 1000000000, fib1_b = fib1 % 1000000000;
+	fib_a = fib / 1000000000, fib_b = fib % 1000000000;
+	/* Printing the last 7 fibonacci numbers */
 	for (i = 92; i < 99; ++i)
 	{
-		printf(", %lu", k1 + (k2 / 1000000000));
-		printf("%lu", k2 % 1000000000);
-		k1 = k1 + j1;
-		j1 = k1 - j1;
-		k2 = k2 + j2;
-		j2 = k2 - j2;
+		printf(", %lu", fib_a + (fib_b / 1000000000));
+		printf("%lu", fib_b % 1000000000);
+		fib_a = fib_a + fib1_a; /* nextFib = currentFib + prevFib */
+		fib1_a = fib_a - fib1_a; /* currentFib = nextFib - prevFib */
+		fib_b = fib_b + fib1_b; /* nextFib = currentFib + prevFib */
+		fib1_b = fib_b - fib1_b; /* currentFib = nextFib - prevFib */
 	}
-	printf("\n");
+	printf("\n"); /* new line */
 
 	return (0);
 }
