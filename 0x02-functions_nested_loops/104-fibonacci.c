@@ -4,7 +4,6 @@
  * main - finds and prints the first 98 Fibonacci numbers,
  * starting with 1 and 2
  * followed by a new line
- * 
  * Return: ALways 0 (Success)
  */
 int main(void)
@@ -21,7 +20,8 @@ int main(void)
 		fib1 = fib - fib1; /* currentFib = nextFib - prevFib */
 	}
 	/**
-	 * Splitting the numbers into two parts since the numbers are getting too large
+	 * Splitting the numbers into two parts
+	 * since the numbers are getting too large
 	 */
 	fib1_a = fib1 / 1000000000, fib1_b = fib1 % 1000000000;
 	fib_a = fib / 1000000000, fib_b = fib % 1000000000;
