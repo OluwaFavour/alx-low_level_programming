@@ -7,9 +7,10 @@ void print_numbers(void)
 {
 	int i;
 
-	while (i < 10)
+	i = 48;
+	while (i < 58)
 	{
-		_putchar('0' + i);
+		_putchar(i);
 		i++;
 	}
 	_putchar('\n');
