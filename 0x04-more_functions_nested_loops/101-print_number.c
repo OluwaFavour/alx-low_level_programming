@@ -6,13 +6,18 @@
  */
 void print_number(int n)
 {
-	int cnt = 0, div = 1, digit, abs_n = n;
+	int cnt = 0, div = 1, digit;
+	unsigned int abs_n = n;
 
 	/* Handle negative numbers */
 	if (n < 0)
 	{
-		abs_n = -n;
 		_putchar('-');
+		abs_n = (unsigned int)(-(n + 1)) + 1;
+	}
+	else
+	{
+		abs_n = (unsigned int)n;
 	}
 
 	/* Count the number of digits in the absolute value of n */
