@@ -3,3 +3,6 @@ _putchar.c
 
 # Ignore all files that end with -main.c
 *-main.c
+
+# Ignore all a.out files
+a.out
