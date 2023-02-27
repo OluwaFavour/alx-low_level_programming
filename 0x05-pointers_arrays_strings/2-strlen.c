@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
   * _strlen - Returns the length of a string
   * @s: The string to compute
@@ -10,11 +10,10 @@ int _strlen(char *s)
 {
 	int count;
 
-	while (count >= 0)
+	while (s[count] != '\0')
 	{
-		if (*(s + count) == '\0')
-			break;
 		count++;
 	}
+	printf("Test: %c\n", s[0]);
 	return (count);
 }
