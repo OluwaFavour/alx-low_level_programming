@@ -8,12 +8,9 @@
   */
 int _strlen(char *s)
 {
-	int count;
+	char *p = s;
 
-	while (s[count] != '\0')
-	{
-		count++;
-	}
-	printf("Test: %c\n", s[0]);
-	return (count);
+	while (*p)
+		p++;
+	return ((int)(p - s));
 }
