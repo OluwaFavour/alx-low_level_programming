@@ -24,6 +24,6 @@ void rev_string(char *s)
 		i--;
 		j++;
 	}
-	while (*s++ = *reversed++)
+	while ((*s++ = *reversed++))
 		;
 }
