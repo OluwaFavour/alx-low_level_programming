@@ -1,0 +1,48 @@
+#include <limits.h>
+
+/**
+ * _atoi - converts a string to an integer.
+ * @s: pointer to string.
+ *
+ * Return: integer value of string, or 0 if string is not a valid integer.
+ */
+int _atoi(char *s)
+{
+	int result = 0;
+	int sign = 1;
+	int i = 0;
+
+	/* Skip leading whitespace */
+	while (s[i] == ' ')
+	{
+		i++;
+	}
+
+	/* Handle sign */
+	if (s[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (s[i] == '+')
+	{
+		i++;
+	}
+
+	/* Convert digits to integer */
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		/* Check for overflow */
+		/* if (result > INT_MAX / 10 ||
+				(result == INT_MAX / 10 && s[i] - '0' > INT_MAX % 10)
+			)
+		{
+			return (0);
+		} */
+
+		result = result * 10 + (s[i] - '0');
+		i++;
+	}
+
+	return (sign * result);
+}
