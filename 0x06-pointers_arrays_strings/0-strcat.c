@@ -27,5 +27,5 @@ char *_strcat(char *dest, char *src)
 	/* add terminating null byte to dest */
 	dest[i] = '\0';
 	/* return pointer to dest string */
-	return dest;
+	return (dest);
 }
