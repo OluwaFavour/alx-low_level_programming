@@ -16,10 +16,10 @@ void print_diagsums(int *a, int size)
 
 	while (i < size)
 	{
-		rightSum = rightSum + a[i*size + j];
+		rightSum = rightSum + a[i * size + j];
 		j--;
 
-		leftSum = leftSum + a[i*size + i];
+		leftSum = leftSum + a[i * size + i];
 		i++;
 	}
 
