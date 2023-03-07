@@ -10,22 +10,21 @@
   */
 int _strspn(char *s, char *accept)
 {
-	unsigned int i, j, res;
+	unsigned char lookup[256] = {0};
+	unsigned int i, res;
 
-	i = j = res = 0;
+	i = res = 0;
 
 	while (accept[i] != '\0')
 	{
-		while (s[j] != '\0')
-		{
-			if (accept[i] == s[j])
-			{
-				res++;
-				break;
-			}
-			j++;
-		}
-		j = 0;
+		lookup[(unsigned char)accept[i]] = 1;
+		i++;
+	}
+
+	i = 0;
+	while (s[i] != '\0' && (lookup[(unsigned char)s[i]]))
+	{
+		res++;
 		i++;
 	}
 
