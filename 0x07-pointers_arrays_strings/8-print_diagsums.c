@@ -9,18 +9,17 @@
   */
 void print_diagsums(int *a, int size)
 {
-	unsigned int leftSum, rightSum;
-	int i, j;
+	int leftSum, rightSum, i, j;
 
 	leftSum = rightSum = i = 0;
 	j = size - 1;
 
 	while (i < size)
 	{
-		rightSum = rightSum + a[i][j];
+		rightSum = rightSum + a[i*size + j];
 		j--;
 
-		leftSum = leftSum + a[i][i];
+		leftSum = leftSum + a[i*size + i];
 		i++;
 	}
 
