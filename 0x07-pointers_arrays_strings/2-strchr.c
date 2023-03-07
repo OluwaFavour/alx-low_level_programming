@@ -22,7 +22,7 @@ char *_strchr(char *s, char c)
 
 	j = 0;
 	res = NULL;
-	while (j < len)
+	while (j <= len)
 	{
 		if (s[j] == c)
 		{
