@@ -27,16 +27,24 @@ int _sqrt_recursion(int n)
   */
 int calc_sqrt(int n, int start, int end)
 {
-	int mid, sq;
+	int mid, sq, res;
 
-	mid = (start + end) / 2;
-	if (mid == start)
+	if (start > end)
 		return (-1);
 
+	mid = start + (end - start) / 2;
 	sq = mid * mid;
 	if (sq == n)
+	{
 		return (mid);
-	if (sq > n)
-		return (calc_sqrt(n, start, mid));
-	return (calc_sqrt(n, mid, end));
+	}
+	else if (sq > n)
+	{
+		return (calc_sqrt(n, start, mid - 1));
+	}
+	else
+	{
+		res = calc_sqrt(n, mid + 1, end);
+		return ((res == -1) ? -1 : res);
+	}
 }
