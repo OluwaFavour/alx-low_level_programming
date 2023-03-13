@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		counter = 0;
-		while (cents >= 0)
+		while (cents > 0)
 		{
 			if ((cents - 25) >= 0)
 			{
