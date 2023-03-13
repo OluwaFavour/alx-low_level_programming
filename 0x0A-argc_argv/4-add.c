@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
   * main - Adds positive numbers from standard input
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
 		res = 0;
 		for (i = 1; i < argc; i++)
 		{
-			if (argv[i] != "0" && atoi(argv[i]) == 0)
+			if (strcmp(argv[i], "0") != 0 && atoi(argv[i]) == 0)
 			{
 				printf("Error\n");
 				return (1);
