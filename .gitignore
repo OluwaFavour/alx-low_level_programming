@@ -1,6 +1,9 @@
 # Ignore _putchar.c
 _putchar.c
 
+# Ignore all .c files in 0x09-static_libraries
+0x09-static_libraries/*.c
+
 # Ignore all files that end with -main.c
 *-main.c
 
