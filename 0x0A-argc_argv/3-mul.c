@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
 {
 	int res;
 
-	if (argc > 1 && argc < 3)
+	if (argc == 3)
 	{
-		res = atoi(argv[0]) * atoi(argv[1]);
+		res = atoi(argv[1]) * atoi(argv[2]);
 	}
 	else
 	{
