@@ -27,19 +27,15 @@ int _strlen(char *s)
   */
 char *str_concat(char *s1, char *s2)
 {
-	int i, j, len, len1, len2;
+	int i, j, len;
 	char *res;
-
-	if (s1 == NULL)
-		len1 = 1; /* Treat s1 as an empty string */
-	else
-		len1 = _strlen(s1) + 1; /* Added 1 because of NULL term */
-
-	if (s2 == NULL)
-		len2 = 1; /* Treat s2 as an empty string */
-	else
-		len2 = _strlen(s2) + 1; /* Added 1 because of NULL term */
-	len = len1 + len2 - 1; /* Remove 1 NULL term */
+	
+	len = 0;
+	if (s1 != NULL)
+		len += _strlen(s1);
+	if (s2 != NULL)
+		len += _strlen(s2) + 1;
+	len++;
 	res = malloc(len * sizeof(char)); /* Allocate memory to res */
 	if (res == NULL)
 		return (NULL);
