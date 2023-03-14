@@ -29,12 +29,12 @@ char *str_concat(char *s1, char *s2)
 {
 	int i, j, len;
 	char *res;
-	
+
 	len = 0;
 	if (s1 != NULL)
 		len += _strlen(s1);
 	if (s2 != NULL)
-		len += _strlen(s2) + 1;
+		len += _strlen(s2);
 	len++;
 	res = malloc(len * sizeof(char)); /* Allocate memory to res */
 	if (res == NULL)
