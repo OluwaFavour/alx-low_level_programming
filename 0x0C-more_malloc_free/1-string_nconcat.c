@@ -43,17 +43,23 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	res = malloc(len * sizeof(char) + 1);
 	i = 0;
-	while (*s1 != '\0')
+	if (s1 != NULL)
 	{
-		res[i] = *s1;
-		i++;
-		s1++;
+		while (*s1 != '\0')
+		{
+			res[i] = *s1;
+			i++;
+			s1++;
+		}
 	}
-	while (i < len)
+	if (s2 != NULL)
 	{
-		res[i] = *s2;
-		i++;
-		s2++;
+		while (i < len)
+		{
+			res[i] = *s2;
+			i++;
+			s2++;
+		}
 	}
 	res[i] = '\0';
 
