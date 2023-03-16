@@ -3,6 +3,10 @@
 
 int _putchar(char c);
 int _strlen(char *s);
+int _isdigit_helper(char *s);
+unsigned long int _atoi(char *s);
+void print_error(void);
+void print_number(int n);
 void *malloc_checked(unsigned int b);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
 void *_calloc(unsigned int nmemb, unsigned int size);
