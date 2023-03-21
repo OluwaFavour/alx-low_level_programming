@@ -2,15 +2,18 @@
 #include <stdlib.h>
 
 /**
-  * print_error - Prints Error to the standard output
+  * _puts - Prints a string followed by a new line to stdout
+  * @str: String to print out
   */
-void print_error(void)
+void _puts(char *str)
 {
-	_putchar('E');
-	_putchar('r');
-	_putchar('r');
-	_putchar('o');
-	_putchar('r');
+	char *p = str;
+
+	while (*p)
+	{
+		_putchar(*p);
+		p++;
+	}
 	_putchar('\n');
 }
 
@@ -45,10 +48,10 @@ int _isdigit_helper(char *s)
  *
  * Return: the integer value of the string
  */
-unsigned long int _atoi(char *s)
+unsigned int _atoi(char *s)
 {
 	int i = 0;
-	unsigned long int result = 0;
+	unsigned int result = 0;
 	int sign = 1;
 	char current_char;
 
@@ -83,7 +86,7 @@ unsigned long int _atoi(char *s)
   */
 void print_number(int n)
 {
-	unsigned long int num;
+	unsigned int num;
 
 	if (n < 0)
 	{
@@ -109,18 +112,19 @@ void print_number(int n)
 int main(int ac, char **av)
 {
 	char *num1, *num2;
-	unsigned long int n1, n2, res;
+	unsigned int n1, n2, res;
 
+	(void)res;
 	if (ac != 3)
 	{
-		print_error();
+		_puts("Error");
 		exit(98);
 	}
 	num1 = av[1];
 	num2 = av[2];
 	if (_isdigit_helper(num1) == 0 || _isdigit_helper(num2) == 0)
 	{
-		print_error();
+		_puts("Error");
 		exit(98);
 	}
 

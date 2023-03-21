@@ -4,8 +4,9 @@
 int _putchar(char c);
 int _strlen(char *s);
 int _isdigit_helper(char *s);
-unsigned long int _atoi(char *s);
-void print_error(void);
+unsigned int _atoi(char *s);
+void _puts(char *str);
+char *infinite_multiply(char *n1, char *n2, char *r, int size_r);
 void print_number(int n);
 void *malloc_checked(unsigned int b);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
