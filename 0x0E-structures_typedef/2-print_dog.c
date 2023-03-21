@@ -18,8 +18,4 @@ void print_dog(struct dog *d)
 				(d->owner ? d->owner : "nil")
 		);
 	}
-	else
-	{
-		return;
-	}
 }
