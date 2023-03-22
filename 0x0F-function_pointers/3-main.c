@@ -22,7 +22,7 @@ int main(int ac, char **av)
 	num1 = atoi(av[1]);
 	num2 = atoi(av[3]);
 	operator = get_op_func(av[2]);
-	if (operator == NULL)
+	if (operator == NULL || av[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
