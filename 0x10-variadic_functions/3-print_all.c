@@ -36,6 +36,7 @@ void print_float(va_list args)
 void print_string(va_list args)
 {
 	char *s = va_arg(args, char *);
+
 	printf("%s", (s == NULL) ? "(nil)" : s);
 }
 
@@ -50,26 +51,34 @@ void print_string(va_list args)
   */
 void print_all(const char *const format, ...)
 {
+	struct format_printer lookup[5];
+	struct format_printer *fp;
 	va_list args;
+	int count;
+
+	lookup[0].format = 'c';
+	lookup[0].print = print_char;
+	lookup[1].format = 'i';
+	lookup[1].print = print_int;
+	lookup[2].format = 'f';
+	lookup[2].print = print_float;
+	lookup[3].format = 's';
+	lookup[3].print = print_string;
+	lookup[4].format = '\0';
+	lookup[4].print = NULL;
+
 	va_start(args, format);
-
-	struct format_printer lookup[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string},
-		{'\0', NULL} // sentinel value
-	};
-
-	int count = 0;
+	count = 0;
 	while (format && format[count])
 	{
-		struct format_printer *fp = lookup;
+		fp = lookup;
 		while (fp->format != '\0')
 		{
 			if (fp->format == format[count])
 			{
 				fp->print(args);
+				if (format[count + 1] != '\0')
+					printf(", ");
 				break;
 			}
 			fp++;
