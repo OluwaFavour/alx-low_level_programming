@@ -1,7 +1,43 @@
 #include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include "variadic_functions.h"
+
+/**
+ * print_char - prints a char
+ * @args: va_list of arguments
+ */
+void print_char(va_list args)
+{
+	printf("%c", va_arg(args, int));
+}
+
+/**
+ * print_int - prints an int
+ * @args: va_list of arguments
+ */
+void print_int(va_list args)
+{
+	printf("%d", va_arg(args, int));
+}
+
+/**
+ * print_float - prints a float
+ * @args: va_list of arguments
+ */
+void print_float(va_list args)
+{
+	printf("%f", va_arg(args, double));
+}
+
+/**
+ * print_string - prints a string
+ * @args: va_list of arguments
+ */
+void print_string(va_list args)
+{
+	char *s = va_arg(args, char *);
+	printf("%s", (s == NULL) ? "(nil)" : s);
+}
 
 /**
   * print_all - Prints anything with a specified format
@@ -12,42 +48,35 @@
   * f -> float
   * s -> char *
   */
-void print_all(const char * const format, ...)
+void print_all(const char *const format, ...)
 {
 	va_list args;
-	char *s;
-	int i = 0;
-
 	va_start(args, format);
 
-	while (format[i] != '\0')
+	struct format_printer lookup[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string},
+		{'\0', NULL} // sentinel value
+	};
+
+	int count = 0;
+	while (format && format[count])
 	{
-		if (format[i] == 'c')
+		struct format_printer *fp = lookup;
+		while (fp->format != '\0')
 		{
-			printf("%c", va_arg(args, int));
+			if (fp->format == format[count])
+			{
+				fp->print(args);
+				break;
+			}
+			fp++;
 		}
-		else if (format[i] == 'i')
-		{
-			printf("%d", va_arg(args, int));
-		}
-		else if (format[i] == 'f')
-		{
-			printf("%f", va_arg(args, double));
-		}
-		else if (format[i] == 's')
-		{
-			s = va_arg(args, char *);
-			printf("%s", (s != NULL ? s : "(nil)"));
-		}
-		i++;
-		if (format[i] != '\0' && (
-					format[i] == 'c' ||
-					format[i] == 'i' ||
-					format[i] == 'f' ||
-					format[i] == 's'
-					))
-			printf(", ");
+		count++;
 	}
+
 	va_end(args);
 	printf("\n");
 }
