@@ -30,7 +30,7 @@ unsigned int _strlen(char *s)
   */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *temp;
+	list_t *new_node;
 	char *value;
 	unsigned int str_len;
 
@@ -39,22 +39,16 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 
 	str_len = _strlen(value);
-	if (*head == NULL)
+	new_node = malloc(sizeof(list_t));
+	if (new_node == NULL)
 	{
-		(*head)->str = value;
-		(*head)->len = str_len;
-		(*head)->next = NULL;
 		free(value);
-
-		return (*head);
+		return (NULL);
 	}
-	temp = malloc(sizeof(list_t));
-	temp->next = *head;
-	(*head) = temp;
-	(*head)->str = value;
-	(*head)->len = str_len;
-	free(value);
-	free(temp);
+	new_node->str = value;
+	new_node->len = str_len;
+	new_node->next = *head;
+	*head = new_node;
 
-	return (*head);
+	return (new_node);
 }
