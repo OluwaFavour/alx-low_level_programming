@@ -12,12 +12,12 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int bit, count, i, result;
 
-	if (*b == '\0' || b == NULL)
+	if (b == NULL || *b == '\0')
 		return (0);
 	i = count = result = 0;
 	while (b[i] != '\0')
 	{
-		if (((b[i] - 48) == 0 || (b[i] - 48) == 1) != 1)
+		if (((b[i] - 48) & ~1) != 0)
 			return (0);
 		count++;
 		i++;
