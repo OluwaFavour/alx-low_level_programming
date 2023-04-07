@@ -1,25 +1,6 @@
 #include <stdlib.h>
 #include "main.h"
 
-int _pow(int x, int y);
-
-/**
-  * _pow - Returns the value of x raised to the power of y
-  * @x: Number to raise to power
-  * @y: The exponent
-  *
-  * Return: Return the value of x raised to the power of y
-  * or -1 if y is lower than 0
-  */
-int _pow(int x, int y)
-{
-	if (y < 0)
-		return (-1);
-	if (y == 0)
-		return (1);
-	return (x * _pow(x, y - 1));
-}
-
 /**
   * binary_to_uint - Converts a binary number to an unsigned int
   *
@@ -49,7 +30,7 @@ unsigned int binary_to_uint(const char *b)
 		while (b[i] != '\0')
 		{
 			bit = b[i] - 48;
-			result += bit * _pow(2, count);
+			result += bit << count;
 			count--;
 			i++;
 		}
