@@ -64,7 +64,7 @@ void copy_file(const char *file_from, const char *file_to)
 	filedes_from = open(file_from, O_RDONLY);
 	if (filedes_from == -1)
 		print_file_from_err(file_from);
-	filedes_to = open(file_to, O_WRONLY | O_CREAT | O_APPEND, permissions);
+	filedes_to = open(file_to, O_WRONLY | O_CREAT, permissions);
 	if (filedes_to == -1)
 		print_file_to_err(file_to);
 
