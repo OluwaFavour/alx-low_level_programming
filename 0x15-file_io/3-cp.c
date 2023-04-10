@@ -73,6 +73,8 @@ void copy_file(const char *file_from, const char *file_to)
 	while ((bytesRead = read(filedes_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		bytesWritten = write(filedes_to, buffer, bytesRead);
+		if (bytesRead < BUFFER_SIZE)
+			break;
 		if (bytesWritten != bytesRead)
 			print_file_to_err(file_to);
 	}
