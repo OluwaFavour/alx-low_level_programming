@@ -13,9 +13,8 @@ int _strlen(char *s);
   */
 int create_file(const char *filename, char *text_content)
 {
-	int filedes, length;
+	int filedes;
 	ssize_t bytesWritten = 0;
-	char *text = text_content;
 	mode_t permissions = S_IRUSR | S_IWUSR; /* rw------- */
 
 	if (filename == NULL)
@@ -27,15 +26,7 @@ int create_file(const char *filename, char *text_content)
 	/* Write to file */
 	if (text_content != NULL)
 	{
-		length = _strlen(text_content);
-		bytesWritten = write(
-				filedes,
-				text_content,
-				(
-				 (text + length) != NULL &&
-				 text_content[length] == '\0'
-				) ? (length + 1) : length
-		); /* +1 to add null terminator to file */
+		bytesWritten = write(filedes, text_content, _strlen(text_content));
 		if (bytesWritten == -1)
 		{
 			close(filedes);
