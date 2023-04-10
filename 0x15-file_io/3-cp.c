@@ -61,6 +61,8 @@ void copy_file(const char *file_from, const char *file_to)
 
 	if (file_from == NULL)
 		print_file_from_err(file_from);
+	if (file_to == NULL)
+		print_file_to_err(file_to);
 	filedes_from = open(file_from, O_RDONLY);
 	if (filedes_from == -1)
 		print_file_from_err(file_from);
