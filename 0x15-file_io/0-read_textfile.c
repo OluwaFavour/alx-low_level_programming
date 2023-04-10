@@ -16,8 +16,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int filedes;
 	char *buffer;
-	ssize_t lettersRead = 0;
-	ssize_t lettersPrinted = 0;
+	ssize_t lettersRead;
+	ssize_t lettersPrinted;
 
 	if (filename == NULL)
 		return (0);
@@ -26,9 +26,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (filedes == -1)
 		return (0);
 	/* Read file to buffer */
-	buffer = malloc(letters);
+	buffer = malloc(letters + 1);
+	if (buffer == NULL)
+		return (0);
 	lettersRead = read(filedes, buffer, letters);
 	if (lettersRead == -1)
+		return (0);
+	/* Close file */
+	if (close(filedes) == -1)
 		return (0);
 	/* Write buffer to standard output */
 	lettersPrinted = write(STDOUT_FILENO, buffer, letters);
