@@ -55,7 +55,7 @@ void print_close_file_err(int fd)
 void copy_file(const char *file_from, const char *file_to)
 {
 	int filedes_from, filedes_to;
-	char buffer[BUFFER_SIZE];
+	char buffer[BUFFER_SIZE + 1];
 	ssize_t bytesRead, bytesWritten;
 	mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
