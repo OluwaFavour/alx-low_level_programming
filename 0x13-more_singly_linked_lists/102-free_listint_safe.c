@@ -12,11 +12,10 @@ size_t listint_len_safe(const listint_t *head);
   */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *current_node, *head;
+	listint_t *current_node;
 	size_t index, count;
 
 	count = listint_len_safe(*h);
-	head = *h;
 
 	if (count == 0)
 	{
