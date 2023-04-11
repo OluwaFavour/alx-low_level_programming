@@ -20,7 +20,7 @@ void print_close_file_err(int fd);
   */
 void print_file_from_err(const char *file_from)
 {
-	dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file_from);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 	exit(98);
 }
 
@@ -99,7 +99,7 @@ int main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
