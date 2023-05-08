@@ -36,7 +36,7 @@ int create_file(const char *filename, char *text_content)
 	}
 	len++;
 	nwritten = write(fd, text_content, len);
-	if (nwritten == -1)
+	if (nwritten < len)
 		return (-1);
 	if (close(fd) == -1)
 		return (-1);
