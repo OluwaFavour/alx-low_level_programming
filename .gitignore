@@ -4,8 +4,8 @@ _putchar.c
 # Ignore all .c files in 0x09-static_libraries
 0x09-static_libraries/*.c
 
-# Ignore ox14-bak
-0x14-bak
+# Ignore 0x15-bak
+0x15-bak
 
 # Ignore all files that end with -main.c
 *-main.c
